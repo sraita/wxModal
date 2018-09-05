@@ -1,0 +1,21 @@
+<!--components/modal.wxml-->
+<view class="modal-mask" wx:if='{{show}}' bindtap='clickMask' catchtouchmove='maskTouchMove'></view>
+<view class="modal show" tabindex="-1" role="dialog" wx:if="{{show}}">
+  <view class="modal-dialog" role="document">
+    <view class="modal-content">
+      <view class="modal-header">
+        <rich-text class="modal-title">{{title}}</rich-text>
+        <button type="button" class="close" bindtap='cancel'>
+          <span aria-hidden="true">×</span>
+        </button>
+      </view>
+      <view class="modal-body" >
+        <slot></slot>
+      </view>
+      <view class="modal-footer">
+        <button type="button" class="btn" bindtap='cancel' style="color:{{cancelColor}};">{{cancelText}}</button>
+        <button type="button" class="btn" bindtap='confirm' style="color:{{confirmColor}};">{{confirmText}}</button>
+      </view>
+    </view>
+  </view>
+</view>
